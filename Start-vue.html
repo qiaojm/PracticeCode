@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">	
+		Vue.component('todo-item', {
+			// todo-item 组件现在接受一个
+			// "prop"，类似于一个自定义特性。
+			// 这个 prop 名为 todo。
+			props: ['todo'],
+			template: '<li>{{ todo.text }}</li>'
+		})
+	</script>
+</head>
+
+<body>
+	<div id="app0">
+		{{message}}
+	</div>
+	<div id="app1">
+		<span v-bind:title="message">悬停鼠标你将看见提示信息</span>
+	</div>
+	<div id="app2">
+		<p v-if='seen'>能看见我</p>
+	</div>
+	<div id="app3">
+		<ol>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+			</li>
+		</ol>
+	</div>
+	<div id="app4">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">逆转消息</button>
+	</div>
+	<div id="app5">
+		<p>{{ message }}</p>
+		<input v-model="message">
+	</div>
+	<div id="app6">
+		<ol>
+			<todo-item v-for="item in 3"></todo-item>
+			<my-item></my-item>
+		</ol>
+	</div>
+	<div id="app7">
+		<ol>
+			<!--
+			现在我们为每个 todo-item 提供 todo 对象
+			todo 对象是变量，即其内容可以是动态的。
+			我们也需要为每个组件提供一个“key”，稍后再
+			作详细解释。
+		  -->
+			<todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+			</todo-item>
+		</ol>
+	</div>
+	<script type="text/javascript">
+		var app0 = new Vue({
+			el: '#app0',
+			data: {
+				message: 'hello qq!'
+			}
+		});
+
+		var app1 = new Vue({
+			el: '#app1',
+			data: {
+				message: '页面加载' + new Date().toLocaleString()
+			}
+		})
+		var app2 = new Vue({
+			el: '#app2',
+			data: {
+				seen: true
+			}
+		})
+		var app3 = new Vue({
+			el: '#app3',
+			data: {
+				todos: [
+					{ text: '学习 JavaScript' },
+					{ text: '学习 Vue' },
+					{ text: '整个牛项目' }
+				]
+			}
+		})
+		var app4 = new Vue({
+			el: '#app4',
+			data: {
+				message: 'Hello Vue.js!'
+			},
+			methods: {
+				reverseMessage: function () {
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+		var app5 = new Vue({
+			el: '#app5',
+			data: {
+				message: 'Hello Vue!'
+			}
+		})
+		// 注册组件
+		Vue.component('todo-item', {
+			template: '<li>nihaoa!</li>'
+		})
+		// 创建根实例（注：确保在初始化根实例之前注册组件）
+		var app6 = new Vue({
+			el: '#app6'
+		})
+
+		Vue.component('todo-item', {
+			props: ['todo'],
+			template: '<li>{{ todo.text }}</li>'
+		})
+
+		var app7 = new Vue({
+			el: '#app7',
+			data: {
+				groceryList: [
+					{ id: 0, text: '蔬菜' },
+					{ id: 1, text: '奶酪' },
+					{ id: 2, text: '随便其它什么人吃的东西' }
+				]
+			}
+		})
+		var d = new Date()
+		document.write(d.toLocaleString()) 
+	</script>
+</body>
+
+</html>

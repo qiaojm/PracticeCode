@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .flex-box {
+            display: -webkit-flex;
+            display: flex;
+            flex: 1;
+            /* flex-wrap: wrap; */
+        }
+
+        .first-container {
+            margin-top: -20px;
+        }
+
+        h3:nth-of-type(1) {
+            color: #f9f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e9e9e9;
+            background-color: #7c7b7be3;
+            flex: 1;
+            height: 75px;
+            box-sizing: border-box;
+
+        }
+
+        h3:nth-of-type(2) {
+            display: flex;
+            color: #f9f7f7;
+            width: 40px;
+            border: 1px solid #e9e9e9;
+            background-color: #7c7b7be3;
+            height: 75px;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .item-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            border: 1px solid #e9e9e9;
+            padding: 5px 5px 5px 0px;
+            line-height: 20px;
+        }
+
+        .item-right {
+            display: flex;
+            width: 40px;
+            align-items: center;
+            border: 1px solid #e9e9e9;
+            box-sizing: border-box;
+            padding: 5px 5px 5px 5px;
+        }
+
+        label {
+            font-size: 16px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+        }
+
+        .control {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .control--radio .control__indicator {
+            border-radius: 50%;
+        }
+
+        .control input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .control__indicator {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background: #e6e6e6;
+            border-radius: 20%;
+        }
+
+        .control:hover input~.control__indicator,
+        .control input:focus~.control__indicator {
+            background: #ccc;
+        }
+
+        .control input:checked~.control__indicator {
+            background: #99cc01;
+        }
+
+        .control__indicator:after {
+            content: '';
+            position: absolute;
+            display: none;
+        }
+
+        .control input:checked~.control__indicator:after {
+            display: block;
+        }
+
+        .control--checkbox .control__indicator:after {
+            left: 8px;
+            top: 4px;
+            width: 3px;
+            height: 8px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .control--radio .control__indicator:after {
+            left: 7px;
+            top: 7px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        #score {
+            justify-content: center;
+            background-color: #99cc01;
+        }
+
+        .second-container {
+            margin-top: 20px;
+        }
+
+        .cell-left {
+            display: flex;
+            width: 25px;
+            background-color: #efefef;
+            border: 1px solid #e9e9e9;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .cell-right {
+            flex: 1;
+            border: 1px solid #e9e9e9;
+            padding: 10px 5px 10px 10px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="flex-box">
+            <h3> 危险因素</h3>
+            <h3>分
+                <br/>数</h3>
+        </div>
+    </header>
+    <section class="first-container">
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--radio">小于65岁
+                    <input type="radio" name="radio" checked="checked" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--radio">65~75岁
+                    <input type="radio" name="radio" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>2</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--radio">大于75岁
+                    <input type="radio" name="radio" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>3</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">高血压
+                    <input type="checkbox" checked="checked" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>5</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">糖尿病
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">既往心肌梗塞(除外心房颤动和心肌梗死和心肌梗死)
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">其它心血管疾病
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">外周动脉疾病
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">吸烟
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="item-left">
+                <label class="control control--checkbox">既往缺血性疾病
+                    <input type="checkbox" />
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="item-right">
+                <label>1</label>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div id="score" class="item-left">
+                <strong>评分</strong>
+            </div>
+            <div class="item-right">
+                <strong>0分</strong>
+            </div>
+        </div>
+    </section>
+    <section class="second-container">
+        <div class="flex-box">
+            <div class="cell-left">
+                <label>结果解读</label>
+            </div>
+            <div class="cell-right">
+                <p>ESRS可以预测稳定期或急性期患者的卒中或复合心血管事件的复发风险。 0~2分者年卒中复发风险较低； 3~6分者为高度风险， 6分以上者为极高度风险， 对于非心源性缺血性卒中，3分及以上需要更强的二级预防治疗，包括抗血小板药物治疗
+                </p>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="cell-left">
+                <label>相关解释</label>
+            </div>
+            <div class="cell-right">
+                <p>ESRS可以预测稳定期或急性期患者的卒中或复合心血管事件的复发风险。 0~2分者年卒中复发风险较低； 3~6分者为高度风险， 6分以上者为极高度风险， 对于非心源性缺血性卒中，3分及以上需要更强的二级预防治疗，包括抗血小板药物治疗
+                </p>
+            </div>
+        </div>
+        <div class="flex-box">
+            <div class="cell-left">
+                <label>参考来源</label>
+            </div>
+            <div class="cell-right">
+                <p>CAPRIE Steering Committee. A randomized, blinded, trial of clopidogrel versus aspirin in patients at risk
+                    of ischaemic events (caprie). Caprie steering committee. Lancet. 1996 Nov 16;348(9038):1329-39. Diener
+                    HC, et al. Expert Opin Pharmacother. 2005;6(5):755-764</p>
+            </div>
+        </div>
+
+
+    </section>
+</body>
+
+</html>

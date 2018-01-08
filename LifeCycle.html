@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{a}}<todo-item></todo-item></div>
+    <!-- <div style="width:100px;height:100px;border:1px solid red;text-align:center;"><p style="line-height:100px;display:inline">sss</p></div> -->
+    <script>
+        	Vue.component('todo-item', {
+			template: '<li>nihaoa!</li>'
+		})
+        var myVue = new Vue({
+            el: "#app",
+            data: {
+                a: "Vue.js"
+            },
+            beforeCreate: function () {
+                console.log("创建前")
+                console.log(this.a)
+                console.log(this.$el)
+            },
+            created: function () {
+                console.log("创建之后");
+                console.log(this.a)
+                console.log(this.$el)
+            },
+            beforeMount: function () {
+                console.log("mount之前")
+                console.log(this.a)
+                console.log(this.$el)
+            },
+            mounted: function () {
+                console.log("mount之后")
+                console.log(this.a)
+                console.log(this.$el)
+            },
+            beforeUpdate: function () {
+                console.log("更新前");
+                console.log(this.a)
+                console.log(this.$el)
+            },
+            updated: function () {
+                console.log("更新完成");
+                console.log(this.a);
+                console.log(this.$el)
+            },
+            beforeDestroy: function () {
+                console.log("销毁前");
+                console.log(this.a)
+                console.log(this.$el)
+                console.log(this.$el)
+            },
+            destroyed: function () {
+                console.log("已销毁");
+                console.log(this.a)
+                console.log(this.$el)
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var leaks = (function () {
+        //     var leak = 'xxxxxx';// 被闭包所引用，不会被回收
+        //     return function () {
+        //         console.log(leak);
+        //     }
+
+        // })()
+        // leaks();
+        function XMLHR(){
+        var xhr;
+        if(window.XMLHttpRequest)
+        {
+            xhr = new XMLHttpRequest();
+        }else{
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            
+        }
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+        //   document.getElementById("mydiv").innerHTML = xhr.responseText;
+           var response = JSON.parse(xhr.responseText);
+           document.getElementById("mydiv").innerHTML = '票价为：' + response.data.price + '元'+'<br/>'+ '余票为:'+ response.data.ticket + '张';
+        
+          } 
+        }
+        xhr.open("GET", "https://www.easy-mock.com/mock/5a5215d2d408383e0e385e64/test/", true);
+        xhr.send();
+        }
+    </script>
+</head>
+
+<body  onload="XMLHR()">
+<div id="mydiv">
+<!-- <h1>通过Ajax改变文字内容</h1> -->
+</div>
+<!-- <button type="button" onclick="XMLHR()">获取数据</button> -->
+</body>
+
+</html>

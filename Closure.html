@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //--------------实例1--------------
+         var a = 0;
+         function aaa() {
+          var a = 1;
+            return function () { 
+                 alert(++a)
+                //  alert(this.a)
+            };
+        }
+        var fun1 = aaa();
+        fun1();
+        fun1();
+        fun1 = null;
+        //---------------实例2--------------
+        // function f1() {
+        //     　　　　var n = 999;
+        //     　　　　nAdd = function () { n += 1 }
+        //     　　　　function f2() {
+        //         　　　　　　alert(n);
+        //     　　　　}
+        //     　　　　return f2;
+        // 　　}
+        // 　　var result = f1();
+        // 　　result(); // 999
+        // 　　nAdd();
+        // 　　result(); // 1000
+        //--------------实例3----------------
+        // var name = "The Window";
+        // 　　var object = {
+        //     　　　　name: "My Object",
+        //     　　　　getNameFunc: function () {
+        //         　　　　　　return function () {
+        //             　　　　　　　　return this.name;
+        //         　　　　　　};
+        //     　　　　}
+        // 　　};
+        // 　　alert(object.getNameFunc()());
+        //---------------------------------
+        //   aaa();
+        // alert(a);
+        // var fun2 = function () {
+        //     var b = 2;
+        // }
+        // ----------------------------------------
+        //start--具名函数及匿名函数判断--start
+        // function getFunctionName(fun) {
+        //     if (fun.name !== undefined)
+        //         return alert(fun.name);
+        //     var ret = fun.toString();
+        //     ret = ret.substr('function '.length);
+        //     ret = ret.substr(0, ret.indexOf('('));
+        //     return ret;
+        // }
+        // getFunctionName(fun1);
+        // getFunctionName(fun2);
+        //end--具名函数及匿名函数判断--end
+        // -----------------------------------------
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
