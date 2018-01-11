@@ -1,12 +1,27 @@
 <template>
 <div class="flex-content">
-    <div class="flex-top"><img src="../../static/img/page.png" alt="#"></div>
+    <div class="flex-top"><img :src='page'  alt="#"></div>
     <div class="flex-bottom">
-        <div  class="photo"><img  src="../../static/img/photo.png"><input type="button" value="拍照识别化验单"></div>
-        <hr/><div  class="review"><img  src="../../static/img/review.png"><input type="button" value="审核饮食方案"></div>
+        <div  class="photo"><img  :src='photo'><input type="button" value="拍照识别化验单"></div>
+        <hr/><div  class="review"><img  :src='review'><input type="button" value="审核饮食方案"></div>
         </div>
 </div>
 </template>
+<script>
+import page from '@/pages/AdaptivePage/img/page.png'
+import photo from '@/pages/AdaptivePage/img/photo.png'
+import review from '@/pages/AdaptivePage/img/review.png'
+export default {
+  name: 'Page1Container',
+  data () {
+    return {
+      photo: photo,
+      page: page,
+      review: review
+    }
+  }
+}
+</script>
 <style>
 .flex-top{
     display: flex;
@@ -63,6 +78,5 @@ input{
     margin-top: 10px;
 }
 </style>
-<script>
-</script>
+
 
