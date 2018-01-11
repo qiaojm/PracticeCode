@@ -18,7 +18,7 @@ export default new Router({
       component: RequestData
     },
     {
-      path: '/test002',
+      path: '/AdaptivePage',
       name: 'AdaptivePage',
       component: AdaptivePage
     }
