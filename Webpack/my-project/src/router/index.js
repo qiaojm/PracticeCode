@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import RequestData from '@/pages/RequestData'
 import Page1Container from '@/pages/Page1Container'
+import AdaptivePage from '@/pages/AdaptivePage'
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
       path: '/test001',
       name: 'RequestData',
       component: RequestData
+    },
+    {
+      path: '/test002',
+      name: 'AdaptivePage',
+      component: AdaptivePage
     }
   ]
 })
