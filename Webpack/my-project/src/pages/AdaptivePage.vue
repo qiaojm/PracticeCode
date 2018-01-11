@@ -11,14 +11,11 @@
 .flex-top{
     display: flex;
     display: -webkit-flex;
-    /* min-width:400px; */
-    /* justify-content: space-between; */
 }
 .flex-top img{
       border: 1px solid #5c8ab9;
       width: 100%;
       height: 100%;
-      /* margin: 0 auto; */
 }
 .flex-bottom{
      display: flex;
@@ -27,12 +24,9 @@
     padding: 20px 0px;
 }
 .photo{
-    /* border: 1px solid #918e8e; */
     flex:1;
 }
 .review{
-    /* border: 1px solid #918e8e; */
-    
     flex:1;
 }
 .photo{
@@ -58,13 +52,5 @@ input{
 
 </style>
 <script>
-// export default {
-//   name: 'AdaptivePage',
-//   data () {
-//     return {
-//       msg: 'Welcome to Your Vue.js App'
-//     }
-//   }
-// }
 </script>
 
