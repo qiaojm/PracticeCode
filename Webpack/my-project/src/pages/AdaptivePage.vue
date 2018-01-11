@@ -11,17 +11,30 @@
 .flex-top{
     display: flex;
     display: -webkit-flex;
+    /* margin:0;padding:0 */
+    /* margin: 0 auto;   */
+     /* width: 100%; */
+      /* height: 100%; */
+     /* flex-direction: column; */
 }
 .flex-top img{
-      border: 1px solid #5c8ab9;
-      width: 100%;
+      /* border: 1px solid #5c8ab9; */
+      width: 106%;
       height: 100%;
+      margin-top: -8px;
+      margin-left: -3%;
+    /* margin:0;padding:0 */
+      /* margin-left: -20px; */
+      /* flex-grow: 3; */
 }
 .flex-bottom{
+    width: 106%;
+     margin-left: -3%;
      display: flex;
     display: -webkit-flex;
-    border: 1px solid #918e8e;
+    border: 1px solid #bdbdbd;
     padding: 20px 0px;
+      flex-direction: row;
 }
 .photo{
     flex:1;
