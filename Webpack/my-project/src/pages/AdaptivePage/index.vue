@@ -4,7 +4,7 @@
     <div class="flex-bottom">
         <div  class="photo"><img  :src='photo'><input type="button" value="拍照识别化验单"></div>
         <hr/><div  class="review"><img  :src='review'><input type="button" value="审核饮食方案"></div>
-        </div>
+    </div>      
 </div>
 </template>
 <script>
@@ -23,59 +23,58 @@ export default {
 }
 </script>
 <style>
-.flex-top{
+.flex-content{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     display: flex;
     display: -webkit-flex;
-    /* margin:0;padding:0 */
-    /* margin: 0 auto;   */
-     /* width: 100%; */
-      /* height: 100%; */
-     /* flex-direction: column; */
+    flex-direction: column;
+     position: fixed;
+}
+.flex-top{ 
+    height: 85%;
 }
 .flex-top img{
-      /* border: 1px solid #5c8ab9; */
-      width: 106%;
-      height: 100%;
-      margin-top: -8px;
-      margin-left: -3%;
-    /* margin:0;padding:0 */
-      /* margin-left: -20px; */
-      /* flex-grow: 3; */
+    width: 100%;
+    height: 100%;
 }
 .flex-bottom{
-    width: 106%;
-     margin-left: -3%;
-     display: flex;
+    display: flex;
     display: -webkit-flex;
-    border: 1px solid #bdbdbd;
-    padding: 20px 0px;
-      flex-direction: row;
+    flex:1;    
+   /* width: 100%;
+    height: 100%; */
 }
+
 .photo{
+    display: flex;  
+    display: -webkit-flex;      
     flex:1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .review{
-    flex:1;
-}
-.photo{
+   display: flex;  
+    display: -webkit-flex;    
+    flex:1;  
     justify-content: center;
- 
-}
-.review{
-    justify-content: center;
+    align-items: center;   
+    flex-direction: column;
+    
 }
 
 .flex-bottom img{
     width: 30px;
     height: 30px;
-    display: block;
-    margin: 0 auto;
+    padding-bottom: 5px;
 }
 input{
     background:none;    
     outline:none;    
     border:0px;  
-    margin-top: 10px;
 }
 </style>
 
