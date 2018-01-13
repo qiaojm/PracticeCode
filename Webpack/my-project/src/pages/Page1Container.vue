@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{testData}}</h1>
-     <router-link to="/AdaptivePage">手机全屏适配</router-link>
+     <router-link to="./pages/AdaptivePage">手机全屏适配</router-link>
     <hello-world></hello-world>
   </div>
 </template>
