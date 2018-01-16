@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // ----------------🙂sort------------------
+        // var array = [1, 12, 21, 2];
+        // array.sort(function (a, b) {
+        //     return b - a;
+        // });
+        //-----------------🙂factorialize（阶乘）--------------
+        // function factorialize(num) {
+        //     if (num === 0) return 1;
+        //     else {
+        //         for (var i = num - 1; i > 0; i--) {
+        //             num *= i;  
+        //         }
+        //         // num *= factorialize(num-1); //方法2
+        //         return num;
+        //     }
+        // }
+        // factorialize(5);
+        //-----------------🙂palindrome(回文)------------------
+        // function palindrome(str) {
+        //     var newstr = str.replace(/[^0-9A-Za-z]/g, '').toLowerCase();
+        //     var resultstr = newstr.split("").reverse().join('');
+        //     if (resultstr === newstr) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // palindrome("A man, a plan, a canal. Panama");
+        //-----------------🙂findLongestWor--------------------
+        // function findLongestWord(str) {
+        //     var arr = str.split(" ");
+        //     var max = 0;
+        //     //方法一：通过for循环遍历数组
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i].length > max)
+        //             max = arr[i].length;
+        //     }
+        //     //方法二：索引
+        //     for (var index in arr) {
+        //         if (arr[index].length > max)
+        //             max = arr[index].length;
+        //     }
+        //     //方法三：for-each or map
+        //     arr.forEach(function (str) {
+        //         if (str.length > max)
+        //             max = str.length;
+        //     });
+        //     //-------------
+        //     return max;
+        //     //方法四：sort排序
+        //     arr.sort(function (a, b) {
+        //         return b.length - a.length;
+        //     });
+        //     return arr[0].length;
+        //     //-------------
+        // }
+        // findLongestWord("The quick brown fox jumped over the lazy dog");
+        //-----------------🙂titleCase（首字母大写）--------------------
+        // function titleCase(str) {
+        //     // 请把你的代码写在这里
+        //     var arr = str.toLowerCase().split(" ");
+        //     arr = arr.map(function (word) {
+        //         return word.replace(word[0], word[0].toUpperCase());
+        //     });
+
+        //     str = arr.join(" ");
+        //     return str;
+        // }
+        // titleCase("I'm a little tea pot");
+        //-------------------😊largestOfFour-------------------------------
+        // function largestOfFour(arr) {
+        //     var newarr = [];
+        //方法一：map   
+        // var max = 0;
+        // arr.map(function (item, index) {
+        //     item.map(function (arry) {
+        //         if (arry > max) {
+        //             max = arry;
+        //         }
+        //     });
+        //     newarr[index] = max;
+        //     max = 0;
+        // });
+        //方法二：sort
+        //     for (var n in arr) {
+        //         arr[n].sort(function (a, b) {
+        //             return b - a;
+        //         });
+        //         newarr.push(arr[n][0]);
+        //     }
+        //     return newarr;
+        // }
+        // largestOfFour([
+        //     [13, 27, 18, 26],
+        //     [4, 5, 1, 3],
+        //     [32, 35, 37, 39],
+        //     [1000, 1001, 857, 1]
+        // ]);
+        //----------------🙂confirmEnding------------------------
+        // function confirmEnding(str, target) {
+        //     var arr = str.split(" ");
+        //     if(str.substr(-target.length) == target)
+        //     return true;
+        //     else return false;
+        //   }
+        // confirmEnding("He has to give me a new name", "me");
+        //-----------------🙂repeat-------------------------------
+        // function repeat(str, num) {
+        //     if (num < 0)
+        //         return '';
+        //     else {
+        //         var arr = str.split();
+        //         for (var i = 0; i < num - 1; i++) {
+        //             arr.push(str);
+        //         }
+        //         str = arr.join('');
+        //     }
+        //     return str;
+        // }
+        // repeat("abc", 3);
+        //-------------------🙂truncate------------------------------------
+        // function truncate(str, num) {
+        //     if(str.length > num && num > 3){
+        //       str =  str.slice(0,num-3);
+        //      return str +'...';
+        //     }
+        //     else if(str.length > num ,num <= 3){
+        //       str = str.slice(0,num);
+        //      return str +'...';
+        //     }
+        //     else 
+        //     return str;
+        //   }
+        //   truncate("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length);
+        //-----------------------🙂chunk（分个数组）-------------------------------------------------
+        // function chunk(arr, size) {
+        //     var newarr = [];
+        //     for (var i = 0; i < arr.length;) {
+        //         newarr.push(arr.slice(i, size + i));
+        //         i += size;
+        //     }
+
+        //     return newarr;
+        // }
+        // chunk([0, 1, 2, 3, 4, 5], 3);
+        //---------------------------🙂slasher截取一部分字符串-------------------------------------------------------------
+        // function slasher(arr, howMany) {
+        //     arr.splice(0, howMany);
+        //     return arr;
+        // }
+
+        // slasher([1, 2, 3], 2);
+        //---------------------------🙂mutation比较---------------------------------------------
+        // function mutation(arr) {
+        //     var str0 = arr[0].toLowerCase();
+        //     var str1 = arr[1].toLowerCase();
+        //     for (var i = 0; i < arr[1].length; i++) {
+        //         if (str0.indexOf(str1[i]) == -1)
+        //             return false;
+        //         else return true;
+        //     }
+        // }
+        // mutation(["hello", "hey"]);
+        //----------------------------🙂bouncer--------------------------------------------------------------
+        // function bouncer(arr) {
+        //     arr = arr.filter(function(item){
+        //        if(item!=='false'|| item!=='null'|| item!==0||item!==""||item!==undefined ||!isNaN(item))
+        //          return item;
+        //          });  
+        //      return arr;
+        //    }
+        //     return arr;
+        // }
+        // bouncer([7, "ate", "", false, 9]);
+        //----------------------------🙂destroyer------------------------------------
+        // function destroyer(arr) {
+        //     var newarr = [];
+        //     for (var a = 0; a < arr.length; a++) {
+        //         var count = 0;
+        //         for (var i = 1; i < arguments.length; i++) {
+        //             if (arr[a] == arguments[i])
+        //                 count++;
+        //         }
+        //         if (count === 0)
+        //             newarr.push(arr[a]);
+        //     }
+        //     return newarr;
+        // }
+        //方法二：Array.prototype.slice.call(arguments); //将arguments对象转化为数组
+        // function destroyer(arr) {
+        //     var newarr = Array.prototype.slice.call(arguments); 
+        //     newarr.splice(0, 1);
+        //     return arr.filter(function (element) {
+        //         return newarr.indexOf(element) === -1;
+        //     });
+        // }
+        // destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+        //-------------------------🙂where------------------------------------------
+        // function where(arr, num) {
+        //     var count = 0;
+        //     arr.sort(function (a, b) {
+        //         return a - b;
+        //     });
+        //     arr.map(function (item) {
+        //         if (item < num)
+        //             count++;
+        //     });
+        //     return count;
+        // }
+
+        // where([40, 60], 50);
+        //---------------------------🙂凯撒密码-------------------------------------------------------
+        // function rot13(str) { // LBH QVQ VG!
+        //     var arr = str.split('');
+        //     for (var i = 0; i < arr.length; i++) {
+        //         var num1 = arr[i].charCodeAt(0); //输入的加密字符编码
+        //         var num2 = num1 - 13; //输入的加密字符编码解密后-13用来解密
+        //         if (num1 >= 65 && num1 <= 90) { //判断字符是不是字母 
+        //             if (num2 < 65) { //num1-13超出字母的编码表
+        //                 arr[i] = String.fromCharCode(num1 + 13); // 90-(13-(num1-64))
+        //             } else {
+        //                 arr[i] = String.fromCharCode(num2);
+        //             }
+        //         } else {
+        //             arr[i] = arr[i];
+        //         }
+        //         str = arr.join("");
+
+        //     }
+        //     return str;
+        // }
+        //方法二：
+        // function rot13(str) {
+        //     var newArray = [];
+        //     for (var i = 0; i < str.length; i++) {
+        //         var numbers = str.charCodeAt(i);
+        //         if (numbers < 65 || numbers > 90) {
+        //             newArray.push(String.fromCharCode(numbers));
+        //         } else if (numbers > 77) {
+        //             newArray.push(String.fromCharCode(numbers - 13));
+        //         } else {
+        //             newArray.push(String.fromCharCode(numbers + 13));
+        //         }
+        //     }
+        //     return newArray.join("");
+        // }
+        // rot13("SERR PBQR PNZC");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -35,10 +35,11 @@ export default {
 }
 .flex-top{ 
     height: 85%;
+    background-color: #f7f7f7;
 }
 .flex-top img{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 .flex-bottom{
     display: flex;
