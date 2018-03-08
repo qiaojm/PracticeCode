@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#getMessage").on("click", function () {  
+                $.getJSON(" https://www.easy-mock.com/mock/5a5f1f4f7ca36d6d969ad910", function (json) {
+
+                    var html = "";
+                    // 请把你的代码写在这条注释以下
+                    json["data"].forEach(function (val) {//json.data
+                        var keys = Object.keys(val);
+                        html += "<div class = 'cat'>";
+                        keys.forEach(function (key) {
+                            html += "<b>" + key + "</b>: " + val[key] + "<br>";
+                        });
+                        html += "</div><br>";
+                    });
+                    // 请把你的代码写在这条注释以上                       
+                    $(".message").html(html);
+
+                      
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class = "row text-center">
+    <h2>Cat Photo Finder</h2>
+  </div>
+  <div class = "row text-center">
+    <div class = "col-xs-12 well message">
+      The message will go here
+   </div>
+  </div>
+  <div class = "row text-center">
+    <div class = "col-xs-12">
+      <button id = "getMessage" class = "btn btn-primary">
+        Get Message
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
