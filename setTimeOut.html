@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(new Date, i);
+            }, 1000); //1000*i每隔一秒闪烁
+        }
+        console.log(new Date, i); //先1个5，一秒后一次性加载5个5
+        //-------------------------------------------------
+        for (var i = 0; i < 5; i++) {
+            setTimeout((function (j) {
+                console.log(new Date, j); //用立即执行函数创建块级作用域（闭包，立即执行函数，let,const,try…catch里的catch均能创建块级作用域）
+            })(i), 1000);
+        }
+        console.log(new Date, i); //先1个5，一秒后一次性显示1，2，3，4，5
+        //-------------------------------------------------------
+        for (let i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(new Date, i); //用立即执行函数创建块级作用域（闭包，立即执行函数，let,const,try…catch里的catch均能创建块级作用域）
+            }, 1000);
+        }
+        console.log(new Date, i); //先显示undefined，一秒后一次性显示1，2，3，4，5
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

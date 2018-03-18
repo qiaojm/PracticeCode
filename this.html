@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Foo() {
+            //     this.getName = function() {//2,4,1,1,2,1,1
+            //         alert(1);
+            //     }
+            //     var getName = function() {//2,4,4,4,2,3,3
+            //         alert(1);
+            //     }
+            getName = function () { //2,4,1,1,2,3,3
+                alert(1);
+            }
+            //     console.log(this);
+            return this;
+        }
+        Foo.getName = function () {
+            alert(2);
+        }
+        Foo.prototype.getName = function () {
+            alert(3);
+        }
+        var getName = function () {
+            alert(4);
+        }
+
+        function getName() {
+            alert(5);
+        }
+        /* 写出输出 */
+        Foo.getName();
+        getName();
+        Foo().getName();
+        getName();
+        new Foo.getName();
+        new Foo().getName();
+        new new Foo().getName();
+        //--------------------------------------------------
+        function a(xx) {
+            this.x = xx;
+            return this;
+        }
+        var y = a(6);
+        var x = a(5);
+        console.log(y.x);
+        console.log(x.x);
+        //------------------------------------------------------
+        function a(xx) {
+            this.x = xx;
+            return this;
+        }
+        var x = a(5);
+        var y = a(6);
+        console.log(y.x);
+        console.log(x.x);
+        //----------------------------
+        //https://segmentfault.com/q/1010000004196727
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -10,6 +10,15 @@
         var arr = [1, 2, 3, 4, 5, 5, 55, 7, 8, 1];
         var brr = Array.from(new Set(arr));
         console.log(brr);
+        // 方法二
+        // var arr = [1, 2, 3, 4, 5, 5, 1, 55, 7, 8, 1, 55];
+        // function unique(arr) {
+        //     var res = arr.filter(function(item, index, array) {
+        //         return array.indexOf(item) === index;
+        //     })
+        //     return res;
+        // }
+        // console.log(unique(arr));
         //----------------------------
         // var mySet = new Set();
         // mySet.add(1);

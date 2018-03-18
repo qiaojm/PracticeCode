@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script>
+         function baz() {
+             console.log("baz");
+             bar();
+         }
+         function bar(){
+             console.log("bar");
+             foo();
+         }
+         function foo() {
+             debugger;
+             console.log("foo");
+         }
+         baz();
+   </script>
+</head>
+<body>
+    
+</body>
+</html>

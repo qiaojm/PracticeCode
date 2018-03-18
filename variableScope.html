@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // var name = "World!";
+        // (function () {
+
+        //         var name;
+
+        //         if (typeof name === 'undefined') {
+
+        //             name = 'Jack';
+
+        //             console.log('Goodbye' + name);
+
+        //         } else {
+
+        //             console.log('hello' + name);
+
+        //         }
+
+        //     }
+
+        // )();
+        //-----------------------------------------------------------------
+        // function test() {
+        //     var n = 4399;
+
+        //     function add() {
+        //         n++;
+        //         console.log(n);
+        //     }
+        //     return {
+        //         n: n,
+        //         add: add
+        //     }
+        // }
+        // var result = test();
+        // var result2 = test();
+        // result.add;
+        // result.add();
+        // result.add();
+        // console.log(result.n);
+        // result2.add();
+        //-----------------------------------------------------------------
+        // var a = 3;
+        // (function () {
+        //     var a = 4;
+        //     console.log(a); //4
+        //     console.log(window.a); //3
+        // })();
+        // console.log(window.a);
+        //-----------------------------------------------------------
+        // function foo(str, a) {
+        //     //"use strict"
+        //     eval(str);
+        //     console.log(b, a);
+        //     // var b =3;
+        // }
+        // var b = 2;
+        // foo('var b = 3;', 1);
+        //----------------------------------------------------------------
+        //     (function () {
+        //         for (var i = 0; i < 10; i++) {
+        //             console.log(i);
+        //         }
+        //         console.log(i);
+        //     })()
+        //----------------------------------------------------------------------------
+        // var addE = document.getElementById("qiao");
+        // addE.addEventListener("click",function name(params) {console.log("button clicked");
+
+        // },false);
+        //------------------------------------------------------------------------
+        //     function process(data) {
+        //     console.log(data);
+        // }
+        // {
+        //     let someReallyBigData = {
+        //         name: 'qiao',
+        //         sex: 'girl'
+        //     };
+        //     process(someReallyBigData);
+
+        // }
+        //------------------------------------------------------------
+        // function aa() {
+        //     var a = 3;
+        //     return a;
+        // }
+        // var b = aa();
+        // console.log(b);
+        //------------------------------------------------------------------
+        // function foo() {
+        //     var a = 3;
+
+        //     function bar() {
+        //         console.log(a);
+        //     }
+        //     // bar();
+        //     return bar;
+        // }
+        // // foo();
+        // var baz = foo();
+        // baz();
+        //----------------------------------------------------------------------
+        function wait(message){
+            setTimeout(function timer(){
+                console.log(message);
+            },1000)
+        }
+        wait("Hello closure!");
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul id="qiao">
+            <li id="aa">aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+        </ul>
+    </div>
+    <script>
+        var addEvent = document.getElementById("qiao");
+        addEvent.addEventListener("click", function name(params) {
+            console.log("button clicked"); //由于js执行是有顺序的，如果直接执行的js写在body前面，是无法获取到body中的标签的。
+        }, false);
+        // var addE2 = document.getElementById('aa');
+        // addE2.addEventListener('click',function name(params) {
+        //     console.log('hello 2');
+        // })
+    </script>
+</body>
+
+</html>
