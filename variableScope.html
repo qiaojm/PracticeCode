@@ -7,114 +7,143 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        // var name = "World!";
-        // (function () {
+        var name = "World!";
+        (function () {
 
-        //         var name;
+                var name;
 
-        //         if (typeof name === 'undefined') {
+                if (typeof name === 'undefined') {
 
-        //             name = 'Jack';
+                    name = 'Jack';
 
-        //             console.log('Goodbye' + name);
+                    console.log('Goodbye' + name);
 
-        //         } else {
+                } else {
 
-        //             console.log('hello' + name);
+                    console.log('hello' + name);
 
-        //         }
+                }
 
-        //     }
+            }
 
-        // )();
+        )();
         //-----------------------------------------------------------------
-        // function test() {
-        //     var n = 4399;
+        function test() {
+            var n = 4399;
 
-        //     function add() {
-        //         n++;
-        //         console.log(n);
-        //     }
-        //     return {
-        //         n: n,
-        //         add: add
-        //     }
-        // }
-        // var result = test();
-        // var result2 = test();
-        // result.add;
-        // result.add();
-        // result.add();
-        // console.log(result.n);
-        // result2.add();
+            function add() {
+                n++;
+                console.log(n);
+            }
+            return {
+                n: n,
+                add: add
+            }
+        }
+        var result = test();
+        var result2 = test();
+        result.add;
+        result.add();
+        console.log(result.n);
+        result.add();
+        result2.add();
         //-----------------------------------------------------------------
-        // var a = 3;
-        // (function () {
-        //     var a = 4;
-        //     console.log(a); //4
-        //     console.log(window.a); //3
-        // })();
-        // console.log(window.a);
+        var a = 3;
+        (function () {
+            var a = 4;
+            console.log(a); //4
+            console.log(window.a); //3
+        })();
+        console.log(window.a);
         //-----------------------------------------------------------
-        // function foo(str, a) {
-        //     //"use strict"
-        //     eval(str);
-        //     console.log(b, a);
-        //     // var b =3;
-        // }
-        // var b = 2;
-        // foo('var b = 3;', 1);
+        function foo(str, a) {
+            //"use strict"
+            eval(str);
+            console.log(b, a);
+            // var b =3;
+        }
+        var b = 2;
+        foo('var b = 3;', 1);
         //----------------------------------------------------------------
-        //     (function () {
-        //         for (var i = 0; i < 10; i++) {
-        //             console.log(i);
-        //         }
-        //         console.log(i);
-        //     })()
+        (function () {
+            for (var i = 0; i < 10; i++) {
+                console.log(i);
+            }
+            console.log(i);
+        })()
         //----------------------------------------------------------------------------
-        // var addE = document.getElementById("qiao");
-        // addE.addEventListener("click",function name(params) {console.log("button clicked");
+        var addE = document.getElementById("qiao");
+        addE.addEventListener("click", function name(params) {
+            console.log("button clicked");
 
-        // },false);
+        }, false);
         //------------------------------------------------------------------------
-        //     function process(data) {
-        //     console.log(data);
-        // }
-        // {
-        //     let someReallyBigData = {
-        //         name: 'qiao',
-        //         sex: 'girl'
-        //     };
-        //     process(someReallyBigData);
+        function process(data) {
+            console.log(data);
+        } {
+            let someReallyBigData = {
+                name: 'qiao',
+                sex: 'girl'
+            };
+            process(someReallyBigData);
 
-        // }
+        }
         //------------------------------------------------------------
-        // function aa() {
-        //     var a = 3;
-        //     return a;
-        // }
-        // var b = aa();
-        // console.log(b);
+        function aa() {
+            var a = 3;
+            return a;
+        }
+        var b = aa();
+        console.log(b);
         //------------------------------------------------------------------
-        // function foo() {
-        //     var a = 3;
+        function foo() {
+            var a = 3;
 
-        //     function bar() {
-        //         console.log(a);
-        //     }
-        //     // bar();
-        //     return bar;
-        // }
-        // // foo();
-        // var baz = foo();
-        // baz();
+            function bar() {
+                console.log(a);
+            }
+            // bar();
+            return bar;
+        }
+        // foo();
+        var baz = foo();
+        baz();
         //----------------------------------------------------------------------
-        function wait(message){
-            setTimeout(function timer(){
+        function wait(message) {
+            setTimeout(function timer() {
                 console.log(message);
-            },1000)
+            }, 1000)
         }
         wait("Hello closure!");
+        //--------------------------------------------------------------------
+        function process(data) {
+            console.log(data);
+        } {
+            let someReallyBigData = {
+                name: 'qiao',
+                sex: 'girl'
+            };
+            process(someReallyBigData);
+        }
+        process(someReallyBigData); //出错，someReallyBigData无定义
+        //----------------------------------------------------------------------------
+        var obj = {
+            id: "awesome",
+            cool: function coolFn() {
+                console.log(this.id);
+            }
+        };
+        var id = "not awesome";
+        obj.cool();
+        setTimeout(obj.cool, 100);
+        //--------------------------------------------------------------------------------------
+        var obj = {
+            id: "awesome",
+            cool: function coolFn() {
+                return this;
+            }
+        };
+        obj.cool();
     </script>
 </head>
 

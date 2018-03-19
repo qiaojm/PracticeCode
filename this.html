@@ -14,7 +14,8 @@
             //     var getName = function() {//2,4,4,4,2,3,3
             //         alert(1);
             //     }
-            getName = function () { //2,4,1,1,2,3,3
+            getName = function () {
+                //2,4,1,1,2,3,3
                 alert(1);
             }
             //     console.log(this);
@@ -46,6 +47,7 @@
             this.x = xx;
             return this;
         }
+
         var y = a(6);
         var x = a(5);
         console.log(y.x);
@@ -55,11 +57,80 @@
             this.x = xx;
             return this;
         }
+
         var x = a(5);
         var y = a(6);
         console.log(y.x);
         console.log(x.x);
+
         //----------------------------
+        function foo(num) {
+            console.log("foo:" + num);
+            //记录foo被调用的次数
+            this.count++;
+        }
+        // var count = 0;
+        foo.count = 0;
+        var i;
+        for (i = 0; i < 10; i++) {
+            if (i > 5) {
+                foo.call(foo, i);
+                //将this与foo绑定
+            }
+        }
+        console.log(foo.count);
+        //-----------------------------------------------------------
+        function foo(num) {
+            console.log("foo:" + num);
+            //记录foo被调用的次数
+            this.count++;
+        }
+        var count = 0;
+        foo.count = 0;
+        var i;
+        for (i = 0; i < 10; i++) {
+            if (i > 5) {
+                foo(i);
+            }
+        }
+        console.log(foo.count, count);
+        //-------------------------------------------------------------
+        function foo() {
+            console.log(this);
+        }
+        foo();
+        var aa = new foo();
+        aa.name = 'qiao';
+        console.log(aa);
+        //---------------------------------------------------
+        function aa() {
+            console.log(a);
+        }
+
+        function bb() {
+            var a = 1;
+            aa();
+            //js是词法作用域与执行位置无关，动态作用域与执行位置有关（this绑定类似动态作用域）
+        }
+        var a = 2;
+        bb();
+        //------------------------------------------------------------
+        //this指向取决于在哪被调用
+        //bar是obj.foo的一个引用，但实际上，它引用的是foo函数本身，因此此时bar()其实是一个不带任何修饰的函数调用，因此应用默认绑定
+        function foo() {
+            console.log(this.a);
+        }
+        var obj = {
+            a: 2,
+            foo: foo
+        }
+        var a = "global";
+        var bar = obj.foo;
+        obj.foo();
+        //2
+        bar();
+        //global
+
         //https://segmentfault.com/q/1010000004196727
     </script>
 </head>

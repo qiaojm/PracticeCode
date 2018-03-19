@@ -27,6 +27,15 @@
             }, 1000);
         }
         console.log(new Date, i); //先显示undefined，一秒后一次性显示1，2，3，4，5
+        //-------------------------------------------------------
+        console.log('I waited 1');
+        setTimeout(function aa() {
+            console.log('I waited 1 second');
+            console.log(arguments.callee); //callee放回正在执行的函数本身的引用，它是arguments的一个属性，caller返回一个函数的引用，这个函数调用了当前的函数
+            console.log(aa);
+            //console.log(aa());//进入死循环
+        }, 1000);
+        console.log('I waited 2');
     </script>
 </head>
 

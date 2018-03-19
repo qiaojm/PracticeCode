@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var name = "java";
+        var name;
+        //相同作用域下，不会重复声明
+        console.log(name);
+        //------------------------
+        var name = "World!";
+        (function () {
+
+                var name;
+                //由于函数作用域此声明只会提到此处
+
+                if (typeof name === 'undefined') {
+
+                    name = 'Jack';
+
+                    console.log('Goodbye' + name);
+
+                } else {
+
+                    console.log('hello' + name);
+
+                }
+
+            }
+
+        )();
+        //--------------------------------------
+
+        (function () {
+            var x = foo();
+            var foo = function foo() {
+                //只会将声明提前，不会将赋值提前
+                return "foobar"
+            };
+            console.log(x);
+        })();
+        //--------------------------------------------
+        var m = 1,
+            j = k = 0;
+
+        function add(n) {
+            return n = n + 1;
+        }
+        y = add(m);
+
+        function add(n) {
+            //函数声明提前
+            return n = n + 3;
+        }
+        z = add(m);
+        console.log(y, z);
+        //---------------------------------------
+        var a = 3;
+        (function () {
+            var a = 4;
+            //由内而外，找到相应声明就不会再往外找了
+            console.log(a);
+        })()
+        //------------------------------------------------
+        function foo(a) {
+            console.log(a + b);
+            var b = a;
+        }
+        foo('a');
+        //-------------------------------------------------
+        (function () {
+            b = 2;
+            //赋值进行LHR查询，在非严格模式下没有找见声明会自动在全局进行声明
+        })();
+        console.log(b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
