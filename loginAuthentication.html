@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form id="loginForm">
+        <input type="text" name="userName" placeholder="请输入登录名">
+        <input type="password" name="password" placeholder="请输入密码">
+        <input type="submit" name="submit" value="submit" onclick="login()">
+    </form>
+    <script>
+        var loginForm = document.getElementById("loginForm");
+
+        function login() {
+            var count = 0;
+            for (let i = 0; i < loginForm.userName.value.length; i++) {
+                if ((loginForm.userName.value.charCodeAt(i) & 0xff00) != 0) {
+                    count++
+                }
+                count++;
+            }
+            if (count < 6 && loginForm.password.value.length < 6) {
+                alert("用户名和密码均不能少于6个字符");
+            } else if (count < 6 && loginForm.password.value.length >= 6) {
+                alert("用户名不能少于6个字符");
+            } else if (count >= 6 && loginForm.password.value.length < 6) {
+                alert("密码不能少于6个字符");
+            } else {
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>

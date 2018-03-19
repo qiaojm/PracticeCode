@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //深拷贝
+        // function deepCopy(initialObject) {
+        //     var finalObject = {};
+        //     finalObject = JSON.parse(JSON.stringify(initialObject)); //会丢失constructor对象
+        //     console.log(finalObject);
+        // }
+        // var arr = [1, 2, 3, 6, 9];
+        // var obj = {
+        //     name: "qiao",
+        //     sex: "girl"
+        // }
+        // var a = 3;
+        // var str = "wdessc";
+        // var b = true;
+        // var func = function(){
+        //     return this;
+        // }//出错
+        // var c = undefined; //出错
+        // var d = null; //出错
+        // console.log(deepCopy(arr), deepCopy(obj), deepCopy(a), deepCopy(str), deepCopy(b),deepCopy(func));
+        //-------------------------------------------------------------------
+        function clone(obj) {
+            var copy;
+            switch (typeof obj) { //typeof返回的数据类型 number，string，boolean，undefined，object，function（其中数组和null均返回object）
+                case "number":
+                    copy = obj;
+                    break;
+                case "string":
+                    copy = obj;
+                    break;
+                case "boolean":
+                    copy = obj;
+                    break;
+                case "undefined":
+                    copy = obj;
+                    break;
+                case "object":
+                    if (obj == null) {
+                        copy = obj;
+                    } else if (toString.apply(obj) === "[object Array]") { //toString.apply()方法得到对象类型
+                        copy = [];
+                        for (var i of obj)
+                            copy.push(i);//或则用for…in  copy.push(obj[i]);                          
+                    } else if (toString.apply(obj) === "[object Object]"){
+                        copy = {};
+                        for (var j in obj) {
+                            copy[j] = obj[j];
+                        }
+                    } 
+                    break;
+                    default:
+                    copy = obj;
+                    break;
+
+            }
+            return copy;
+        }
+        var arr = [1, 2, 3, 6, 9];
+        var obj = {
+            name: "qiao",
+            sex: "girl"
+        };
+        var a = 3;
+        var str = "wdessc";
+        var b = true;
+        var func = function () {
+            return this;
+        } //出错
+        var c = undefined; //出错
+        var d = null; //出错
+        console.log(clone(arr),clone(obj),clone(a),clone(str),clone(b),clone(func),clone(c),clone(d));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
