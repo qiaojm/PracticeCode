@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .container {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #eee;
+      font-size: 5rem;
+      flex-wrap: wrap;
+      color: red;
+    }
+    .item{
+      width: 49%;
+      height: 400px;
+      background: #d12d2d;
+      margin: 1px;
+      color:white;
+      border-radius: 10%;
+      justify-content:space-between;
+    }
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left {
+      flex: 1;
+      height: 800px;
+      border-radius: 10%;
+      background:cornsilk;
+    }
+    .right {
+      display: flex;
+      flex: 2;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex container">
+    <div class="flex left">臭</div>
+    <div class="flex right">
+      <div class="flex item">老</div>
+      <div class="flex item">牛</div>
+      <div class="flex item">小</div>
+      <div class="flex item">牛</div>
+    </div>
+  </div>
+</body>
+</html>
